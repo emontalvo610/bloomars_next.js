@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bloomars Dashboard
 
-## Getting Started
+A simple dashboard with chat app which displays the answer randomly with a prompt.
 
-First, run the development server:
+It has basic sidebar and nav bars which has dynamic routes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<!-- A comprehensive playground template for building rich-text editors with [Plate](https://platejs.org/) and Next.js 14. -->
+
+## Requirements
+
+Node.js ^18.17.0
+
+## Installation
+
+Clone the repository:
+
+```shell
+git clone git@github.com:emontalvo610/bloomars_next.js.git
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install the modules
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run the app
 
-## Learn More
+```shell
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+Visit the application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```shell
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
+1. Dynamic Menus
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- It has dynamic menus which can be changed by JSON data
+- Each menu can have icon and name and nested menus
+- There is `close` button which will collapse/uncollapse the menu
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Main Page
+
+- In the main page, it just has header and tab items based on menu change
+
+3. Dynamic Routing
+
+- Based on menu or tab selection, it will dynamically navigate to the proper routes
+- Also selected menu or tab should be active and the others shouldn't be active
+
+4. Prompt View
+
+- Hamburger menu item selection will show the prompt view
+- User can input prompt and get answers(random) and display the `streaming-like` texts
+- It saves the list of prompts and answers and it should be scrollable
+
+![image](./screenshots/chatPrompt.png)
+
+5. Admin Page
+
+- There is admin page which can set the menus and sample answer and this setting will be saved on backend
+
+![image](./screenshots//Dashboard.png)
+
+## Challenges
+
+The main challenge through this application is making dynamic menus/tabs/routes from JSON data. To do so, I parsed the menu JSON data and made dynamic routes and save current settings in the backend.
+
+Another a bit of challenge is displaying the prompt answer in streaming way using timer. I thought it was complicated but it's just updating the text in timely manner and just draw it.
